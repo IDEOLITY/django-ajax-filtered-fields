@@ -1,4 +1,5 @@
-ajax_filtered_fields = {
+(function($) {
+  ajax_filtered_fields = {
     
     request_url: "/ajax_filtered_fields/json_index/",
     data_loaded: "data_loaded",
@@ -88,4 +89,5 @@ ajax_filtered_fields = {
         });
     }
             
-};
+  };
+})(django.jQuery);
