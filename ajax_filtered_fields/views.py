@@ -15,9 +15,9 @@ def json_index(request):
         object_name = request.GET.get('object_name')
         
         if app_label and object_name:
-            from django.db.models.loading import get_model
+            from django.apps import apps
             # get the model
-            model = get_model(app_label, object_name)
+            model = apps.get_model(app_label, object_name)
             
             if model is not None:
                 from django.utils import simplejson
