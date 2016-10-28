@@ -58,9 +58,11 @@ class FilteredSelectMultiple(forms.SelectMultiple):
             </div>
             %s
             <script type="text/javascript">
-                $(document).ready(function(){
+                (function($) {
+                  $(document).ready(function(){
                 	SelectFilter.init("id_%s", "%s", 0, "%s");
-                });
+                  });
+                })(django.jQuery);
             </script>
         """ % (lookups_output, parent_output, name, 
             verbose_name, settings.ADMIN_MEDIA_PREFIX)
@@ -148,7 +150,8 @@ class FilteredSelect(forms.Select):
             <input type="hidden" name="%(name)s" id="hidden-%(element_id)s" value="%(value)s" />
             
             <script type="text/javascript" charset="utf-8">
-        		$(document).ready(function(){
+                (function($) {
+                  $(document).ready(function(){
                     SelectBox.init('%(element_id)s');
 
                     $("#%(filter_id)s").bind("keyup", function(e) {
@@ -160,7 +163,8 @@ class FilteredSelect(forms.Select):
                     });
                     
                     ajax_filtered_fields.bindForeignKeyOptions("%(element_id)s");
-        		});
+        	  });
+                })(django.jQuery);
         	</script>
             """ % mapping
             
