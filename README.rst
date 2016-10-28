@@ -56,8 +56,8 @@ with the *RelatedModel* one, via the ``related_models`` field.
 
             class Media:
                 js = (
-                    settings.ADMIN_MEDIA_PREFIX + "js/SelectBox.js",
-                    settings.ADMIN_MEDIA_PREFIX + "js/SelectFilter2.js",
+                    settings.STATIC_URL + "admin/js/SelectBox.js",
+                    settings.STATIC_URL + "admin/js/SelectFilter2.js",
                     '/path/to/javascripts/jquery.js',
                     '/path/to/javascripts/ajax_filtered_fields.js',
                 )
@@ -66,9 +66,9 @@ with the *RelatedModel* one, via the ``related_models`` field.
    have to load several *django admin*'s Javascript files from the page where
    the field will be shown::
 
-    {% load adminmedia %}
+    {% load static %}
     <script type="text/javascript" src="/admin/jsi18n/"></script>
-    <script type="text/javascript" src="{% admin_media_prefix %}js/core.js"></script>
+    <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
 
 5. if your form is used by **non-staff users** (e.g. in the frontend of your site)
    then ``<script type="text/javascript" src="/admin/jsi18n/"></script>`` will

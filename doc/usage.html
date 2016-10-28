@@ -362,8 +362,8 @@ from django.conf import settings
 
         class Media:
             js = (
-                settings.ADMIN_MEDIA_PREFIX + &quot;js/SelectBox.js&quot;,
-                settings.ADMIN_MEDIA_PREFIX + &quot;js/SelectFilter2.js&quot;,
+                settings.STATIC_URL + &quot;admin/js/SelectBox.js&quot;,
+                settings.STATIC_URL + &quot;admin/js/SelectFilter2.js&quot;,
                 '/path/to/javascripts/jquery.js',
                 '/path/to/javascripts/ajax_filtered_fields.js',
             )
@@ -373,9 +373,9 @@ from django.conf import settings
 have to load several <em>django admin</em>'s Javascript files from the page where
 the field will be shown:</p>
 <pre class="literal-block">
-{% load adminmedia %}
+{% load static %}
 &lt;script type=&quot;text/javascript&quot; src=&quot;/admin/jsi18n/&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;{% admin_media_prefix %}js/core.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;{% static &#39;admin/js/core.js&#39; %}&quot;&gt;&lt;/script&gt;
 </pre>
 </li>
 <li><p class="first">if your form is used by <strong>non-staff users</strong> (e.g. in the frontend of your site)

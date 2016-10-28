@@ -65,7 +65,7 @@ class FilteredSelectMultiple(forms.SelectMultiple):
                 })(django.jQuery);
             </script>
         """ % (lookups_output, parent_output, name, 
-            verbose_name, settings.ADMIN_MEDIA_PREFIX)
+            verbose_name)
         
         return mark_safe(output)
         
@@ -128,7 +128,7 @@ class FilteredSelect(forms.Select):
             "name": name,
             "element_id": self._element_id, 
             "value": "" if value is None else value,
-            "admin_media_prefix": settings.ADMIN_MEDIA_PREFIX,
+            "static_url": settings.STATIC_URL,
             }
                             
         output = u"""
@@ -140,7 +140,7 @@ class FilteredSelect(forms.Select):
                 <div class="selector-available">
                     <h2>%(selection)s</h2>
                     <p class="selector-filter">
-                        <img src="%(admin_media_prefix)simg/admin/selector-search.gif"> 
+                        <img src="%(static_url)sadmin/img/search.svg">
                         <input id="%(filter_id)s" type="text">
                     </p>
                     %(parent_output)s
