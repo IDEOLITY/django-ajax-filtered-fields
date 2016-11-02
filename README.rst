@@ -37,7 +37,7 @@ with the *RelatedModel* one, via the ``related_models`` field.
 
 2. add this line to your Django project's ``urls.py``::
 
-    (r'^ajax_filtered_fields/', include('ajax_filtered_fields.urls')),
+    url(r'^ajax_filtered_fields/', include('ajax_filtered_fields.urls')),
 
 3. in the model **form**, choose the field you want to use, reference
    the formerly copied Javascript file, the jQuery library and the
@@ -77,9 +77,9 @@ with the *RelatedModel* one, via the ``related_models`` field.
    A simple work around to resolve the problem is to directly point a
    url to the view by including the following line in the urls.py::
 
-    (r'^dynamic-media/jsi18n/$', 'django.views.i18n.javascript_catalog'),
+    url(r'^dynamic-media/jsi18n/$', 'django.views.i18n.javascript_catalog'),
     or
-    (r'^dynamic-media/jsi18n/$', 'django.views.i18n.null_javascript_catalog'),
+    url(r'^dynamic-media/jsi18n/$', 'django.views.i18n.null_javascript_catalog'),
 
    depending on whether or not you use the i18n
 

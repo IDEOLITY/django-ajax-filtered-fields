@@ -342,7 +342,7 @@ included in <tt class="docutils literal"><span class="pre">media/js/</span></tt>
 </li>
 <li><p class="first">add this line to your Django project's <tt class="docutils literal"><span class="pre">urls.py</span></tt>:</p>
 <pre class="literal-block">
-(r'^ajax_filtered_fields/', include('ajax_filtered_fields.urls')),
+url(r'^ajax_filtered_fields/', include('ajax_filtered_fields.urls')),
 </pre>
 </li>
 <li><p class="first">in the model <strong>form</strong>, choose the field you want to use, reference
@@ -384,9 +384,9 @@ not work (due to permission problems).</p>
 <p>A simple work around to resolve the problem is to directly point a
 url to the view by including the following line in the urls.py:</p>
 <pre class="literal-block">
-(r'^dynamic-media/jsi18n/$', 'django.views.i18n.javascript_catalog'),
+url(r'^dynamic-media/jsi18n/$', 'django.views.i18n.javascript_catalog'),
 or
-(r'^dynamic-media/jsi18n/$', 'django.views.i18n.null_javascript_catalog'),
+url(r'^dynamic-media/jsi18n/$', 'django.views.i18n.null_javascript_catalog'),
 </pre>
 <p>depending on whether or not you use the i18n</p>
 <p>and then referencing the new url in place of
