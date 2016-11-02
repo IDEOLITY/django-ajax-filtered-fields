@@ -60,12 +60,11 @@ class FilteredSelectMultiple(forms.SelectMultiple):
             <script type="text/javascript">
                 (function($) {
                   $(document).ready(function(){
-                	SelectFilter.init("id_%s", "%s", 0, "%s");
+                	SelectFilter.init("id_%s", "%s", 0);
                   });
                 })(django.jQuery);
             </script>
-        """ % (lookups_output, parent_output, name, 
-            verbose_name)
+        """ % (lookups_output, parent_output, name, verbose_name)
         
         return mark_safe(output)
         
