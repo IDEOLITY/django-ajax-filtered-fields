@@ -66,12 +66,12 @@ with the *RelatedModel* one, via the ``related_models`` field.
    have to load several *django admin*'s Javascript files from the page where
    the field will be shown::
 
-    {% load static %}
-    <script type="text/javascript" src="/admin/jsi18n/"></script>
+    {% load admin_urls i18n static %}
+    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
     <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
 
 5. if your form is used by **non-staff users** (e.g. in the frontend of your site)
-   then ``<script type="text/javascript" src="/admin/jsi18n/"></script>`` will
+   then ``<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>`` will
    not work (due to permission problems).
 
    A simple work around to resolve the problem is to directly point a

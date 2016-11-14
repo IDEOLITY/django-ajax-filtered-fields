@@ -373,13 +373,15 @@ from django.conf import settings
 have to load several <em>django admin</em>'s Javascript files from the page where
 the field will be shown:</p>
 <pre class="literal-block">
-{% load static %}
-&lt;script type=&quot;text/javascript&quot; src=&quot;/admin/jsi18n/&quot;&gt;&lt;/script&gt;
+{% load admin_urls i18n static %}
+&lt;script type=&quot;text/javascript&quot; src=&quot;{% url &#39;admin:jsi18n&#39; %}/&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;{% static &#39;admin/js/core.js&#39; %}&quot;&gt;&lt;/script&gt;
 </pre>
 </li>
 <li><p class="first">if your form is used by <strong>non-staff users</strong> (e.g. in the frontend of your site)
-then <tt class="docutils literal"><span class="pre">&lt;script</span> <span class="pre">type=&quot;text/javascript&quot;</span> <span class="pre">src=&quot;/admin/jsi18n/&quot;&gt;&lt;/script&gt;</span></tt> will
+then <tt class="docutils literal"><span class="pre">&lt;script</span>
+            <span class="pre">type=&quot;text/javascript&quot;</span>
+            <span class="pre">src=&quot;{% url &#39;admin:jsi18n&#39; %}/&quot;&gt;&lt;/script&gt;</span></tt> will
 not work (due to permission problems).</p>
 <p>A simple work around to resolve the problem is to directly point a
 url to the view by including the following line in the urls.py:</p>
