@@ -77,9 +77,11 @@ with the *RelatedModel* one, via the ``related_models`` field.
    A simple work around to resolve the problem is to directly point a
    url to the view by including the following line in the urls.py::
 
-    url(r'^dynamic-media/jsi18n/$', 'django.views.i18n.javascript_catalog'),
+    from django.views import i18n
+    ...
+    url(r'^dynamic-media/jsi18n/$', i18n.javascript_catalog),
     or
-    url(r'^dynamic-media/jsi18n/$', 'django.views.i18n.null_javascript_catalog'),
+    url(r'^dynamic-media/jsi18n/$', i18n.null_javascript_catalog),
 
    depending on whether or not you use the i18n
 
