@@ -28,7 +28,7 @@ def _renderFilter(js_method_name, element_id, model, lookup_list,
 
 class FilteredSelectMultiple(forms.SelectMultiple):
             
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, choices=None):
         self._element_id = attrs['id']
         # choices links
         # if there is only one choice, then nothing will be rendered
@@ -83,7 +83,7 @@ class FilteredSelectMultiple(forms.SelectMultiple):
         
 class FilteredSelect(forms.Select):
     
-    def render(self, name, value, attrs=None, choices=()):
+    def render(self, name, value, attrs=None, choices=None):
         self._element_id = attrs['id']
         # choices links
         # if there is only one choice, then nothing will be rendered
